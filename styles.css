@@ -41,6 +41,24 @@ table {
 	border-spacing: 0;
 }
 /* My Own Styles */
+
+
+/* Root Styles */
+:root {
+	--dark-text-and-fill-color: hsl(229, 25%, 31%);
+	--light-text-and-fill-color: #f8f8f8;
+ 	--score-text-color: hsl(229, 64%, 46%);
+	--background-color-start:hsl(214, 47%, 23%);
+	--background-color-end:hsl(237, 49%, 15%);
+	--header-outline-color:hsl(217, 16%, 45%);
+}
+
+
+
+
+
+
+/* General Styles */
 * {
     box-sizing: border-box;
 }
@@ -51,5 +69,28 @@ html {
     
 body {
 	font-size: 1.6rem;
-    
+    max-width: 1366px;
+    margin: 0 auto;
+    border: 2px solid red;
+}
+
+/* header  */
+.score-and-titles-container{
+    display: flex;
+    justify-content: space-between;
+    border: 0.3rem solid hsl(217, 16%, 45%);
+    margin: 0 auto;
+    margin-top: 5rem;
+    width: 50%;
+	border-radius: 1.6rem;
+
+}
+.score-container{
+	text-align: center;
+	background-color: #f8f8f8;
+
+}
+
+.score-container p{
+	color:hsl(229, 64%, 46%);
 }
