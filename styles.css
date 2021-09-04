@@ -72,6 +72,8 @@ html {
 }
     
 body {
+
+	position: relative;
 	line-height: 1;
 	font-size: 1.6rem;
 	font-family: 'Barlow Semi Condensed', sans-serif;
@@ -83,6 +85,13 @@ body {
 	background: -webkit-radial-gradient(top, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
 	background: -moz-radial-gradient(top, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
 	background: radial-gradient(to bottom, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
+
+}
+
+p{
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	letter-spacing: 0.2rem;
 }
 
 /* header  */
@@ -110,9 +119,6 @@ body {
 
 .score-container p{
 	color: var(--score-text-color);
-	text-transform: uppercase;
-	font-size: 1.5rem;
-	letter-spacing: 0.2rem;
 	margin-bottom: 0.1rem;
 }
 .score-num{
@@ -123,11 +129,12 @@ body {
 
 /* main section */
 .triangle-img-container{
-	width: max-content;
+	width: 20%;
+	height: 20%;
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
-	margin-top: 17rem;
+	margin-top: 13rem;
 	position: relative;
 }
 
@@ -183,4 +190,23 @@ body {
 	width: 12rem;
 	height: 12rem;
 	padding: 2rem;
+}
+
+
+/* Rules Button */
+
+.rules-button{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 2rem;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: var(--light-text-and-fill-color);
+	padding: 2rem 4rem;
+	border-radius: 1rem;
+	margin: 0 3rem 3rem 0;
+	border: 0.1rem solid var(--header-outline-color)
+
 }
