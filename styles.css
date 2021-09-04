@@ -219,6 +219,32 @@ p{
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.52);
+
 	opacity: 1;
-	display: none;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* display: none; */
+	/* Toggle With Js modal background */
+}
+
+.rules-modal{
+	background-color: var(--light-text-and-fill-color);
+	padding: 4rem 6rem 4rem 5rem;
+	border-radius: 1rem;
+}
+.rules-text{
+	font-size: 3rem;
+	text-transform: uppercase;
+	letter-spacing:0.1rem;
+	color: var(--dark-text-and-fill-color);
+}
+.top-rules-and-close-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 108%;
+	margin-bottom: 4rem;
 }
