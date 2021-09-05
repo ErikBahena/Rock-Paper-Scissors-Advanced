@@ -147,6 +147,7 @@ p{
 	position: absolute;
 	padding: 2rem;
 	border-radius: 50%;
+	transition: 0.2s ease;
 	
 }
 .blue-paper{
@@ -222,11 +223,9 @@ p{
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.52);
 	opacity: 1;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
-
-	display: none;
 	/* Toggle With Js modal background line above to display: flex;*/
 }
 
@@ -317,4 +316,9 @@ p{
 	.triangle-img-container{
 		transform: scale(0.6);
 	}
+}
+
+/* Hover states on play selections */
+.outer-play-container:hover{
+	border: 1.5rem solid rgba(143, 143, 143, 0.479);
 }
