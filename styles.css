@@ -85,7 +85,7 @@ body {
 	background: -webkit-radial-gradient(top, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
 	background: -moz-radial-gradient(top, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
 	background: radial-gradient(to bottom, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
-
+	background-repeat: no-repeat;
 }
 
 p{
@@ -104,7 +104,7 @@ p{
     margin-top: 4.5rem;
     width: 50%;
 	border-radius: 1.6rem;
-	padding: 1.6rem 2rem 1rem 2.6rem;
+	padding: 1.2% 1.5% 0.75% 1.95%;
 	letter-spacing: 0.1rem;
 }
 
@@ -122,7 +122,7 @@ p{
 	margin-bottom: 0.1rem;
 }
 .score-num{
-	font-size: 5.5rem;
+	font-size: 350%;
 	color: var(--header-outline-color);
 	font-weight: 700;
 }
@@ -136,6 +136,8 @@ p{
 	justify-content: center;
 	margin-top: 13rem;
 	position: relative;
+	min-width: max-content;
+	margin-bottom: 10%;
 }
 
 .triangle-img{
@@ -219,15 +221,13 @@ p{
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.52);
-
 	opacity: 1;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	/* display: none; */
-	/* Toggle With Js modal background */
+	display: none;
+	/* Toggle With Js modal background line above to display: flex;*/
 }
 
 .rules-modal{
@@ -247,4 +247,74 @@ p{
 	align-items: baseline;
 	width: 108%;
 	margin-bottom: 4rem;
+}
+
+/* tablet responsiveness */
+@media screen and (max-width: 780px){
+	.score-and-titles-container{
+		border: 4px solid var(--header-outline-color);
+		width: 80%;
+	}
+	.score-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 25%;
+	}
+
+	.titles-container img{
+		width: 90%;
+	}
+
+	.triangle-img-container{
+		margin-top: 7rem;
+		transform: scale(0.8);
+	}
+
+	.rules-button{
+		position: unset;
+		bottom: unset;
+		right: unset;
+		margin: 0 auto;
+		margin-top: 3rem;
+		width: 40%;
+	}
+
+}
+/* Mobile home responsiveness */
+@media screen and (max-width: 500px){
+	body{
+		width: 100%;
+	}
+
+	.titles-container img{
+		width: 80%;
+	}
+	.score-and-titles-container{
+		padding: 1.5rem;
+		border-radius: 0.8rem;
+	}
+	.score-container{
+		width: 40%;
+	}
+	.rules-modal{
+		width: 80%;
+	}
+	.rules-image{
+		width: 110%;
+	}
+
+	
+}
+@media screen and (max-width: 320px) {
+	.triangle-img-container{
+		transform: scale(0.7);
+		margin-top: 2rem;
+	}
+}
+@media screen and (max-width: 280px) {
+	.triangle-img-container{
+		transform: scale(0.6);
+	}
 }
