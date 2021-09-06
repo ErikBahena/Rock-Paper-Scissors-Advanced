@@ -138,6 +138,8 @@ p{
 	position: relative;
 	min-width: max-content;
 	margin-bottom: 10%;
+	display: none;
+	/* Toggle Display */
 }
 
 .triangle-img{
@@ -195,6 +197,49 @@ p{
 	padding: 2rem;
 }
 
+/* You Picked Stage*/
+.you-picked-stage{
+	display: flex;
+	min-width: max-content;
+	width: 35%;
+	border: 5px solid green;
+	margin: 0 auto;
+	justify-content: space-between;
+	margin-top: 7rem;
+	align-items: start;
+
+}
+
+.you-picked-container, .the-house-picked-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.you-picked-container p, .the-house-picked-container p{
+	margin-bottom: 4rem;
+	color: var(--light-text-and-fill-color);
+}
+
+.the-house-puck-container{
+background-color:rgba(20, 22, 57, 0.582);
+border-radius: 50%;
+width: 13rem;
+height: 13rem;
+
+}
+
+/* apply with js */
+.outer-play-container{
+	bottom:unset;
+	top: unset;
+	right: unset;
+	left: unset;
+	position: unset;
+}
+
+
 
 /* Rules Button */
 
@@ -249,6 +294,15 @@ p{
 }
 
 /* tablet responsiveness */
+
+@media screen and (max-width: 1000px){
+/* You Picked Responsiveness */
+.you-picked-stage{
+	width: 70%;
+}
+	
+}
+
 @media screen and (max-width: 780px){
 	.score-and-titles-container{
 		border: 4px solid var(--header-outline-color);
@@ -303,13 +357,36 @@ p{
 	.rules-image{
 		width: 110%;
 	}
+	/* You picked Stage Responsiveness */
 
+	.you-picked-stage{
+		width: 90%;
+	}
+
+	.outer-play-container:hover{
+		border: none;
+	}
+}
+
+@media  screen and (max-width: 400px){
 	
 }
+
 @media screen and (max-width: 320px) {
 	.triangle-img-container{
 		transform: scale(0.7);
 		margin-top: 2rem;
+	}
+
+	/* You Picked Responsiveness */
+	.you-picked-stage{
+		width: 100%;
+	}
+	.outer-play-container{
+		transform: scale(0.8);
+	}
+	.the-house-puck-container{
+		transform: scale(0.8)
 	}
 }
 @media screen and (max-width: 280px) {

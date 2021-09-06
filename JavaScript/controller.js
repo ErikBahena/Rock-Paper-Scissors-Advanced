@@ -1,6 +1,9 @@
 import rulesView from './Views/rulesView.js';
 
+import gamePlayView from "./Views/gamePlayView.js"
+
 const init = () => {
-    rulesView.addOpenRulesHandler()
+    rulesView.addOpenRulesHandler();
+    gamePlayView.addInitialPuckHandlers();
 }
 init();
