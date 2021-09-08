@@ -138,7 +138,7 @@ p{
 	position: relative;
 	min-width: max-content;
 	margin-bottom: 10%;
-	display: none;
+	/* display: none; */
 	/* Toggle Display */
 }
 
@@ -199,7 +199,6 @@ p{
 
 /* You Picked Stage*/
 .you-picked-stage{
-	display: flex;
 	min-width: max-content;
 	width: 35%;
 	border: 5px solid green;
@@ -207,8 +206,10 @@ p{
 	justify-content: space-between;
 	margin-top: 7rem;
 	align-items: start;
+	display: none;
 
 }
+
 
 .you-picked-container, .the-house-picked-container{
 	display: flex;
@@ -231,12 +232,11 @@ height: 13rem;
 }
 
 /* apply with js */
-.outer-play-container{
-	bottom:unset;
-	top: unset;
-	right: unset;
-	left: unset;
-	position: unset;
+
+.hover-puck:hover{
+	/* Hover states on play selections */
+	border: 1.5rem solid rgba(143, 143, 143, 0.479);
+
 }
 
 
@@ -395,7 +395,3 @@ height: 13rem;
 	}
 }
 
-/* Hover states on play selections */
-.outer-play-container:hover{
-	border: 1.5rem solid rgba(143, 143, 143, 0.479);
-}
