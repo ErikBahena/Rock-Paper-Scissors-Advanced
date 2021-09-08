@@ -79,7 +79,6 @@ body {
 	font-family: 'Barlow Semi Condensed', sans-serif;
     max-width: 1366px;
     margin: 0 auto;
-    border: 1px solid red;
 	height: inherit;
 	background: rgba(17, 107, 176, 1.0);
 	background: -webkit-radial-gradient(top, rgba(17, 107, 176, 1.0), rgba(20, 22, 57, 1.0));
