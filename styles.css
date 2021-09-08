@@ -225,8 +225,9 @@ p{
 .the-house-puck-container{
 background-color:rgba(20, 22, 57, 0.582);
 border-radius: 50%;
-width: 13rem;
-height: 13rem;
+/* width: 13rem;
+height: 13rem; */
+border: 2px solid red;
 
 }
 
