@@ -36,33 +36,28 @@ class gamePlayView {
         this._alterPuckStyles(playElement)
 
         // Computers turn
-        const [housePick, houseElement] = this._generateTheHouseChoice();
+        const [housePick, color] = this._generateTheHouseChoice();
 
         // insert that house pick into the house pick container
 
-        this._theHousePuckContainer.insertAdjacentHTML("afterbegin", this._generateTheHouseChoiceHtml(housePick))
-
-        // create new html element
-        
-
-        // alter stying to these elements
-        this._alterPuckStyles(document.querySelector(".clone").closest(".outer-play-container"));
+        self = this;
+        setTimeout(function(){
+            self._theHousePuckContainer.insertAdjacentHTML("afterbegin", self._generateTheHouseChoiceHtml(housePick, color));
+            self._alterPuckStyles(document.querySelector(".clone").closest(".outer-play-container"));
+            self._theHousePuckContainer.style.height = "unset";
+            self._theHousePuckContainer.style.width = "unset";
+            self._theHousePuckContainer.style.background = "unset";
+        }, 2000);
         
     }
     _alterPuckStyles(puck){
-
         puck.style.top = "unset";
         puck.style.bottom = "unset";
         puck.style.right = "unset";
         puck.style.left = "unset";
         puck.style.position = "unset";
+        puck.style.borderBottom = "unset";
         puck.classList.remove("hover-puck");
-
-        if(puck.classList.contains("clone")){
-            puck.style.height = "unset"
-            // puck.style.borderRadius = "unset"
-            // puck.style.border = "unset"
-        }
     }
 
     _changeDefaultViewToYourPickView(){
@@ -74,17 +69,17 @@ class gamePlayView {
     _generateTheHouseChoice(){
         const computerChoice = Math.floor(Math.random() * 3)
 
-        if(computerChoice === 0) return  ["rock", this._rockBtn];
-        if(computerChoice === 1) return ["paper", this._paperBtn];
+        if(computerChoice === 0) return  ["rock", "red"]
+        if(computerChoice === 1) return ["paper", "blue"]
 
-        return ["scissors", this._scissorsBtn];
+        return ["scissors", "yellow"]
     }
 
-    _generateTheHouseChoiceHtml(housePick){
+    _generateTheHouseChoiceHtml(housePick, color){
         return `   
-        <div class="outer-play-container red-${housePick} rock hover-puck clone">
+        <div class="outer-play-container ${color}-${housePick} ${housePick} clone hover-puck">
             <div class="inner-play-container">
-                 <img src="/images/icon-${housePick}.svg" alt="Image of a ${housePick}">
+                 <img src="/images/icon-${housePick}.svg" alt="Illustration of a ${housePick}">
             </div>
         </div>`
     }
