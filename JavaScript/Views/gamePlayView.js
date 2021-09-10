@@ -1,3 +1,5 @@
+import rulesView from './rulesView.js';
+
 class gamePlayView {
 
     _paperBtn = document.querySelector(".blue-paper");
@@ -19,34 +21,26 @@ class gamePlayView {
 
     _scoreNumContainer = document.querySelector(".score-num");
 
-    _playAgainMobile = document.querySelector(".play-again-button");
-
-    _playAgainDesktop = document.querySelector(".play-again-button-desktop");
-
     addInitialPuckHandlers = function (){
         [this._paperBtn, this._rockBtn, this._scissorsBtn].forEach( btn => btn.addEventListener( "click", this._youPicked.bind(this)))
     }
-
+    
     _youPicked(e){
-        const pickedPlayAsElement = e.target.closest(".outer-play-container")
-        const pickedPlay = pickedPlayAsElement.classList[2];
+        const pickedPlayElementClone = e.target.closest(".outer-play-container").cloneNode(true)
+
+        const pickedPlay = pickedPlayElementClone.classList[2];
       
-        this._youPickedUpdateView(pickedPlay, pickedPlayAsElement);
+        this._youPickedUpdateView(pickedPlay, pickedPlayElementClone);
     }
     _youPickedUpdateView(yourPlay, playElement){
        
-        this._changeDefaultViewToYourPickView();
-
-        // Insert the users pick into the new view
+        // Users Turn 
+        this._changeOrResetDefaultView();
         this._yourPuckContainer.insertAdjacentElement("afterbegin", playElement);
-        
-
         this._alterPuckStyles(playElement);
 
         // Computers turn
         const [housePick, color] = this._generateTheHouseChoice();
-
-        // insert that house pick into the house pick container
 
         self = this;
         setTimeout(function(){
@@ -55,15 +49,16 @@ class gamePlayView {
             self._theHousePuckContainer.style.height = "unset";
             self._theHousePuckContainer.style.width = "unset";
             self._theHousePuckContainer.style.background = "unset";
-        }, 2000);
+        }, 0);
 
+        // Who won and update score
         const whoWon = this._checkWhoWon(yourPlay, housePick);
 
         setTimeout(function(){
             self._insertWhoWonHtml(whoWon)
             self._updateScore(whoWon)
-            self._addPlayAgainHandlers()
-        }, 3000);
+            self._addPlayAgainHandlers();
+        }, 0);
         
     }
     _alterPuckStyles(puck){
@@ -76,11 +71,17 @@ class gamePlayView {
         puck.classList.remove("hover-puck");
     }
 
-    _changeDefaultViewToYourPickView(){
-         // We Need to hide the traingle background section
-         this._triangleSectionContainer.style.display = "none";
-         // Display the you picked Stage
-         this._youPickedStage.style.display = "flex";
+    _changeOrResetDefaultView(reset){
+
+        if(reset){
+            this._triangleSectionContainer.style.display = "flex";
+            this._youPickedStage.style.display = "none";
+        } 
+
+        if(!reset){
+            this._triangleSectionContainer.style.display = "none";
+            this._youPickedStage.style.display = "flex";
+        }
     }
     _generateTheHouseChoice(){
         const computerChoice = Math.floor(Math.random() * 3);
@@ -127,8 +128,10 @@ class gamePlayView {
         placeholder.innerHTML = this._createWhoWonHtml(winOrLoose, true);
         const node = placeholder.firstElementChild;
 
+
         this._whoWonContainerDesktop.replaceChild(node, oldNode)
     }
+
     _createWhoWonHtml(winOrLoose, deskTop){
         return `
         <div class="who-won-container${deskTop ? "-desktop" : ""} four">
@@ -146,14 +149,29 @@ class gamePlayView {
         let currentScore = +this._scoreNumContainer.textContent;
         let newScore = currentScore + 1;
 
-        console.log(currentScore)
         if(whoWon === "you lose") return;
         if(whoWon === "you win") this._scoreNumContainer.innerHTML = newScore;
         if(whoWon === "it's a tie") return;
 
     }
+
     _addPlayAgainHandlers(){
-        
+        // Had to declare buttons here because they are not defined until after initialization
+       const playAgainMobile = document.querySelector(".play-again-button");
+       const playAgainDesktop = document.querySelector(".play-again-button-desktop");
+       [playAgainDesktop, playAgainMobile].forEach(btn => btn.addEventListener("click", this._resetToInitialView.bind(this)))
+    }
+
+
+    _resetToInitialView(){
+        this._changeOrResetDefaultView(true);
+        this._theHousePuckContainer.innerHTML = "";
+        this._yourPuckContainer.innerHTML = "";
+        this._whoWonContainer.innerHTML = `
+        <div class="rules-button three">
+         <p>Rules</p>
+        </div>
+        `
     }
 }
 export default new gamePlayView();
