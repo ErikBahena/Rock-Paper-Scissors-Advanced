@@ -343,6 +343,16 @@ height: 13rem;
 	margin-bottom: 4rem;
 }
 
+
+
+/* Hover Styles For Play Again Btn */
+.hover-you-win:hover{
+	color: rgb(20, 156, 20);
+}
+.hover-you-lose:hover{
+	color:rgb(207, 20, 20);
+}
+
 /* tablet responsiveness */
 @media screen and (max-width: 1000px){
 /* You Picked Responsiveness */
@@ -403,7 +413,7 @@ height: 13rem;
 	.who-won-container{
 		display: flex;
 	}
-	
+
 	/* change the "you picked" and "the house picked" text order for mobile*/
 	.one{
 		order: 2;
