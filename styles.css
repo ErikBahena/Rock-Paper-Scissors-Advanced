@@ -436,6 +436,7 @@ height: 13rem;
 	}
 	.score-and-titles-container{
 		padding: 1.5rem;
+		margin-top: 1rem;
 		border-radius: 0.8rem;
 	}
 	.score-container{
