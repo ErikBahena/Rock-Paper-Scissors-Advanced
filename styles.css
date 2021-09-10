@@ -200,12 +200,12 @@ p{
 
 /* You Picked Stage*/
 .you-picked-stage{
-	min-width: max-content;
 	width: 35%;
+	min-width: max-content;
 	margin: 0 auto;
 	justify-content: space-between;
 	margin-top: 7rem;
-	align-items: start;
+	align-items: center;
 	display: none;
 
 }
@@ -236,32 +236,22 @@ height: 13rem;
 	border: 1.5rem solid rgba(143, 143, 143, 0.479);
 
 }
+/* Who Won Repeat Styles */
 
-/* .rules-button{
-	visibility: hidden;
-} */
-
-/* Who won section */
-
-.who-won-container{
-	display: flex;
+.who-won-container-desktop, .who-won-container{
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
-	height: max-content;
-	width: 100%;
-
 }
-.you-win-or-loose-text{
+.you-win-or-loose-text, .you-win-or-loose-text-desktop{
 	color: var(--light-text-and-fill-color);
 	text-transform: uppercase;
-	font-size: 6rem;
 	font-weight: 900;
 	letter-spacing: 0.2rem;
 }
-.play-again-button{
+
+.play-again-button, .play-again-button-desktop{
 	height: 4.5rem;
-	width: 60%;
 	margin-top: 2rem;
 	display: flex;
 	justify-content: center;
@@ -269,14 +259,36 @@ height: 13rem;
 	border-radius: 0.8rem;
 	background-color: var(--light-text-and-fill-color);
 }
-.play-again-button p{
-	color: red;
+
+/* Who won section desktop */
+
+.who-won-container-desktop{
+	display: flex;
+	margin-left: 4rem;
+	margin-right: 4rem;
 }
 
+.you-win-or-loose-text-desktop{
+	font-size: 4rem;
+}
 
+.play-again-button-desktop{
+	width: 100%;
+}
 
+/* Who won section mobile*/
+.who-won-container{
+	display: none;
+	height: max-content;
+	width: 100%;
 
-
+}
+.you-win-or-loose-text{
+	font-size: 6rem;
+}
+.play-again-button{
+	width: 60%;
+}
 
 /* Rules Button */
 
@@ -315,12 +327,14 @@ height: 13rem;
 	padding: 4rem 6rem 4rem 5rem;
 	border-radius: 1rem;
 }
+
 .rules-text{
 	font-size: 3rem;
 	text-transform: uppercase;
 	letter-spacing:0.1rem;
 	color: var(--dark-text-and-fill-color);
 }
+
 .top-rules-and-close-container{
 	display: flex;
 	justify-content: space-between;
@@ -330,13 +344,11 @@ height: 13rem;
 }
 
 /* tablet responsiveness */
-
 @media screen and (max-width: 1000px){
 /* You Picked Responsiveness */
-.you-picked-stage{
-	width: 70%;
-}
-	
+	.you-picked-stage{
+		width: 70%;
+	}
 }
 
 @media screen and (max-width: 780px){
@@ -370,6 +382,7 @@ height: 13rem;
 		margin-top: 7%;
 		width: 40%;
 	}
+
 	/* rules order on mobile */
 	.rules-btn-and-won-container{
 		display: flex;
@@ -382,6 +395,25 @@ height: 13rem;
 	}
 	.four{
 		order: -1;
+	}
+	/* You Win or Loose Desktop */
+	.who-won-container-desktop{
+		display: none;
+	}
+	.who-won-container{
+		display: flex;
+	}
+	
+	/* change the "you picked" and "the house picked" text order for mobile*/
+	.one{
+		order: 2;
+		margin-top: 1.3rem;
+	}
+	.two{
+		order: 1;
+	}
+	.you-picked-stage{
+		margin-top: 2rem;
 	}
 }
 /* Mobile home responsiveness */
@@ -416,14 +448,7 @@ height: 13rem;
 	.outer-play-container:hover{
 		border: none;
 	}
-	/* change the "you picked" and "the house picked" text order for mobile*/
-	.one{
-		order: 2;
-		margin-top: 1.3rem;
-	}
-	.two{
-		order: 1;
-	}
+	
 
 	
 }
@@ -437,14 +462,26 @@ height: 13rem;
 		transform: scale(0.7);
 		margin-top: 2rem;
 	}
-
 	/* You Picked Responsiveness */
 	.you-picked-stage{
-		width: 100%;
+		margin: 0 auto;
+		width: 100vw;
+		transform: scale(0.9);
+	}
+	p.one, p.two{
+		margin-bottom: unset;
 	}
 	.outer-play-container{
 		transform: scale(0.9);
 	}
+	.rules-button{
+		margin-top: 5%;
+	}
+	.you-win-or-loose-text{
+		font-size: 4rem;
+	}
+	
+
 }
 @media screen and (max-width: 280px) {
 	.triangle-img-container{
